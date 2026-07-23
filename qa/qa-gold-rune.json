@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "name": "QA Gold Rune",
+  "width": 8,
+  "height": 8,
+  "background": "obsidian",
+  "runs": [
+    { "y": 1, "x": 3, "length": 2, "material": "native-gold" },
+    { "y": 2, "x": 2, "length": 4, "material": "native-gold" },
+    { "y": 3, "x": 1, "length": 2, "material": "native-gold" },
+    { "y": 3, "x": 5, "length": 2, "material": "native-gold" },
+    { "y": 4, "x": 2, "length": 4, "material": "native-gold" },
+    { "y": 5, "x": 3, "length": 2, "material": "native-gold" },
+    { "y": 6, "x": 3, "length": 2, "material": "malachite" }
+  ]
+}

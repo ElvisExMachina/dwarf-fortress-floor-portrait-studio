@@ -1,0 +1,33 @@
+#notes label(README) MATERIAL FILTER SETUP REQUIRED - this section builds nothing
+STOP: Quickfort CSV cells cannot encode floor materials.
+Before each filterNN section set buildingplan's floor filter to the exact material named in that section.
+Keep the cursor on the same portrait upper-left tile before applying every section.
+For Metal floors run buildingplan set bars true once; bars are disabled by default.
+Never apply a material section while the floor filter is [any material].
+#build label(filter01_obsidian_then_apply) start(1;1;portrait upper-left) 46 x Obsidian [obsidian; Stone; #2a2e36] floors; DO NOT APPLY until buildingplan floor filter is Obsidian
+Cf(8x1),,,,,,,
+Cf(3x1),,,,,Cf(3x1),,
+Cf(2x1),,,,,,Cf(2x1),
+Cf,,,Cf(2x1),,,,Cf
+Cf(2x1),,,,,,Cf(2x1),
+Cf(3x1),,,,,Cf(3x1),,
+Cf(3x1),,,,,Cf(3x1),,
+Cf(8x1),,,,,,,
+#build label(filter02_native_gold_then_apply) start(1;1;portrait upper-left) 16 x Native Gold [native-gold; Stone; #594944] floors; DO NOT APPLY until buildingplan floor filter is Native Gold
+,,,,,,,
+,,,Cf(2x1),,,,
+,,Cf(4x1),,,,,
+,Cf(2x1),,,,Cf(2x1),,
+,,Cf(4x1),,,,,
+,,,Cf(2x1),,,,
+,,,,,,,
+,,,,,,,
+#build label(filter03_malachite_then_apply) start(1;1;portrait upper-left) 2 x Malachite [malachite; Stone; #325f52] floors; DO NOT APPLY until buildingplan floor filter is Malachite
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,,,,,
+,,,Cf(2x1),,,,
+,,,,,,,

@@ -1,0 +1,70 @@
+{
+  "name": "dwarf-fortress-floor-portrait-studio",
+  "private": true,
+  "version": "1.0.0",
+  "description": "A local-first Dwarf Fortress floor-art planner with original procedural material textures and staged DFHack Quickfort exports.",
+  "license": "MIT",
+  "author": "Rich Thompson",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ElvisExMachina/dwarf-fortress-floor-portrait-studio.git"
+  },
+  "homepage": "https://github.com/ElvisExMachina/dwarf-fortress-floor-portrait-studio#readme",
+  "bugs": {
+    "url": "https://github.com/ElvisExMachina/dwarf-fortress-floor-portrait-studio/issues"
+  },
+  "keywords": [
+    "dwarf-fortress",
+    "dfhack",
+    "quickfort",
+    "pixel-art",
+    "floor-plan"
+  ],
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "preview": "vite preview",
+    "generate:materials": "node scripts/generate-materials.mjs",
+    "licenses:generate": "node scripts/generate-third-party-licenses.mjs",
+    "licenses:check": "node scripts/generate-third-party-licenses.mjs --check",
+    "predev": "npm run generate:materials",
+    "prebuild": "npm run generate:materials",
+    "build": "tsc -b && vite build",
+    "typecheck": "tsc -b --pretty false",
+    "lint": "eslint . --max-warnings 0",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "verify": "npm run licenses:check && npm run generate:materials && npm test && npm run typecheck && npm run lint && npm run build",
+    "release:package": "bash scripts/package-release.sh"
+  },
+  "dependencies": {
+    "@fontsource/alegreya-sc": "^5.2.8",
+    "@fontsource/ibm-plex-mono": "^5.2.7",
+    "@fontsource/ibm-plex-sans": "^5.2.7",
+    "lucide-react": "^0.468.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.17.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@types/node": "^22.10.2",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "@vitejs/plugin-react": "^6.0.4",
+    "eslint": "^9.17.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.16",
+    "globals": "^15.14.0",
+    "jsdom": "^29.1.1",
+    "sharp": "^0.35.3",
+    "typescript": "~5.7.2",
+    "typescript-eslint": "^8.18.2",
+    "vite": "^8.1.5",
+    "vitest": "^4.1.10"
+  }
+}
