@@ -39,15 +39,18 @@ A clean clone must regenerate the same texture hashes and typed catalog from rep
 - Image import uses contain-to-canvas mapping, material quantization, optional filtered palette, and optional Floyd–Steinberg dithering.
 - Local browser persistence with explicit reset behavior.
 
-## “Ask Hermes to design it” workflow
+## Provider-neutral AI chatbot workflow
 
-No hidden API integration, invented key, or fake AI call.
+No hidden API integration, invented key, fake AI call, or provider dependency.
 
 The **AI Design Desk**:
 
 1. Accepts the idea, dimensions, style notes, background, and optional restricted palette.
-2. Copies a self-contained prompt for Hermes.
-3. Imports and validates Hermes' compact JSON response atomically.
+2. Copies a self-contained prompt for any capable cloud or local AI chatbot.
+3. Explains the copy/paste, privacy, validation, and correction workflow in the product.
+4. Imports and validates the chatbot's compact JSON response atomically.
+
+The Studio sends no prompt or design to an external service. Direct sign-in, API calls, model selection, tool access, and agent orchestration are outside the copy/paste integration boundary.
 
 Compact schema:
 
@@ -100,11 +103,11 @@ Typography is bundled locally: Alegreya SC, IBM Plex Sans, and IBM Plex Mono.
 - Vite + React + TypeScript.
 - Pure, testable transformation and export modules.
 - Deterministic generated assets with recorded SHA-256 hashes.
-- No third-party reference-sheet pixels, crops, or game artwork in the repository or release artifact.
+- No third-party reference-sheet pixels or crops in the repository or release artifact. One illustrative in-game screenshot is allowed only with explicit third-party-content and license-exclusion notices.
 - No machine-specific paths, secrets, or required external services.
 - MIT license for original project code and procedural textures.
 - Clear unofficial/non-affiliation and trademark notice.
 - GitHub Actions gate on the pinned Node runtime.
 - `npm run verify`, production dependency audit, and `npm run release:package` must pass.
 - Browser verification covers first load, textures, editing, history, search/filter, design import, and export.
-- Release ZIP includes the static build, license, third-party notice, run instructions, and SHA-256 checksum.
+- Release ZIP includes the static build, license, third-party notice, run instructions, offline guides, illustrative screenshot, and SHA-256 checksum.

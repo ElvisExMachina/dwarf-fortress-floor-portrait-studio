@@ -13,11 +13,15 @@ ARCHIVE="$RELEASE_DIR/${RELEASE_NAME}.zip"
 
 rm -rf "$RELEASE_DIR"
 mkdir -p "$STAGE_DIR"
+mkdir -p "$STAGE_DIR/docs/images" "$STAGE_DIR/qa"
 
 npm run licenses:check
 npm run build
 cp -R dist/. "$STAGE_DIR/"
 cp LICENSE THIRD_PARTY_NOTICES.md THIRD_PARTY_LICENSES.txt "$STAGE_DIR/"
+cp docs/AI_CHATBOT.md docs/QUICKFORT.md "$STAGE_DIR/docs/"
+cp docs/images/dwarf-fortress-floor-portraits.png "$STAGE_DIR/docs/images/"
+cp qa/qa-gold-rune.json "$STAGE_DIR/qa/"
 
 cat > "$STAGE_DIR/RUN.txt" <<EOF
 Dwarf Fortress Floor Portrait Studio v${VERSION}
@@ -33,6 +37,10 @@ Then open http://127.0.0.1:8000/ in a browser.
 The app is local-first and stores projects in that browser's localStorage.
 See THIRD_PARTY_NOTICES.md for project status and attribution, and
 THIRD_PARTY_LICENSES.txt for complete runtime dependency license texts.
+See docs/AI_CHATBOT.md for the provider-neutral design workflow and
+docs/QUICKFORT.md for staged material-filter instructions.
+The illustrative in-game screenshot is at
+docs/images/dwarf-fortress-floor-portraits.png and is covered by the notice above.
 EOF
 
 # Normalize mtimes and strip platform-specific ZIP metadata so repeated runs from

@@ -2,9 +2,15 @@
 
 A local-first pixel portrait planner for constructing floor art in **Dwarf Fortress**. One editor cell represents one constructed in-game floor tile.
 
-> **Unofficial project:** This fan utility is not affiliated with or endorsed by Bay 12 Games, Kitfox Games, or DFHack. The repository contains original procedural texture artwork and no Dwarf Fortress game artwork.
+> **Unofficial project:** This fan utility is not affiliated with or endorsed by Bay 12 Games, Kitfox Games, or DFHack. Project code and procedural textures are MIT-licensed; the illustrative in-game screenshot below contains third-party game content and is excluded from that license.
 
 ![Floor Portrait Studio running in procedural Texture mode](docs/qa/procedural-texture-overview.png)
+
+## In-game result
+
+![Two constructed-floor portraits inside Dwarf Fortress](docs/images/dwarf-fortress-floor-portraits.png)
+
+*Two large constructed-floor portraits shown in Dwarf Fortress. Screenshot provided by the project owner for illustrative use; Dwarf Fortress visuals and UI remain the property of their respective owners and are not covered by this repository's MIT License.*
 
 ## Features
 
@@ -14,7 +20,7 @@ A local-first pixel portrait planner for constructing floor art in **Dwarf Fortr
 - 115 named materials: 83 Stone, 3 Glass, 3 Ceramic, and 26 Metal.
 - Deterministic original 48×48 procedural textures plus a clean color mode.
 - Image import with contain-to-canvas mapping, palette restrictions, and optional Floyd–Steinberg dithering.
-- Copy/paste Hermes design workflow using validated compact JSON runs.
+- Provider-neutral AI chatbot workflow using validated compact JSON runs.
 - PNG, JSON, ordered CSV, build-run CSV, text-plan, and staged Quickfort downloads.
 - Browser `localStorage` persistence with no account, API key, or cloud service.
 
@@ -46,6 +52,8 @@ python3 -m http.server 8000
 
 Then open <http://127.0.0.1:8000/>. The static build must be served over HTTP rather than opened directly as a `file://` URL.
 
+The archive includes offline copies of the [AI chatbot workflow](docs/AI_CHATBOT.md), [Quickfort instructions](docs/QUICKFORT.md), verified JSON example, and the illustrative in-game screenshot.
+
 ## Editor workflow
 
 1. Create or resize a portrait from 1×1 through 100×100.
@@ -55,17 +63,20 @@ Then open <http://127.0.0.1:8000/>. The static build must be served over HTTP ra
 5. Use **Color** for planning or **Texture** for close inspection.
 6. Export the finished plan in the format you need.
 
-## Ask Hermes for a design
+## Ask an AI chatbot for a design
 
-The **AI Design Desk** is a transparent copy/paste handoff—not a hidden API integration:
+The **AI Design Desk** works with any capable cloud or local chatbot that can follow detailed instructions and return strict JSON. It is a transparent copy/paste handoff—not a hidden API integration:
 
 1. Enter an idea, dimensions, style notes, background, and optional material IDs.
-2. Click **Copy request for Hermes**.
-3. Paste the request into Hermes.
-4. Paste the JSON-only response into **AI design JSON**.
-5. Click **Import AI design**.
+2. Click **Copy AI chatbot request**.
+3. Paste the complete request into the chatbot of your choice.
+4. Copy its entire JSON-only response into **Chatbot design JSON**.
+5. Click **Validate and import design**.
+6. If validation fails, paste the exact Studio error back into the chatbot and ask for one corrected JSON object only.
 
-The importer validates the complete design before changing the canvas. Invalid dimensions, coordinates, lengths, backgrounds, or material IDs are rejected atomically.
+The Studio sends nothing to an external service and stores no chatbot credentials. Your selected chatbot's privacy terms apply to anything you paste into it. The importer validates the complete design before changing the canvas; invalid dimensions, coordinates, lengths, backgrounds, or material IDs are rejected atomically.
+
+For compatibility notes, local-model tips, troubleshooting, privacy guidance, and the complete workflow, see [`docs/AI_CHATBOT.md`](docs/AI_CHATBOT.md).
 
 ### Compact design schema
 
@@ -148,7 +159,10 @@ src/data/                      generated typed catalog
 src/lib/                       grid, runs, quantization, rendering, and exports
 src/components/                editor and workflow panels
 qa/                            fixed compact-design fixture
-docs/                          Quickfort and release documentation
+docs/AI_CHATBOT.md             provider-neutral chatbot workflow and troubleshooting
+docs/QUICKFORT.md              staged Quickfort material-filter instructions
+docs/images/                   illustrative in-game screenshot (third-party content)
+docs/                          release and implementation documentation
 ```
 
 ## License
